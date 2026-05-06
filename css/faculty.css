@@ -1,0 +1,320 @@
+.faculty-page{
+  background:
+    radial-gradient(circle at 10% 5%, rgba(29,155,240,.16), transparent 28%),
+    radial-gradient(circle at 90% 12%, rgba(0,71,155,.12), transparent 30%),
+    linear-gradient(180deg,#f8fbff 0%,#eef5ff 46%,#f8fafc 100%);
+  overflow-x:hidden;
+}
+
+/* Hero */
+.projects-hero{
+  background:#fff;
+  padding:32px 0 18px;
+  border-bottom:1px solid var(--border);
+}
+
+.projects-title{
+  margin:0 0 6px;
+  font-family:var(--font-heading);
+  font-weight:700;
+  font-size:clamp(22px,3vw,28px);
+  color:var(--navy);
+  text-align:center;
+  position:relative;
+}
+
+.projects-title::after{
+  content:"";
+  display:block;
+  width:80px;
+  height:3px;
+  margin:12px auto 0;
+  border-radius:999px;
+  background:var(--primary);
+}
+
+.projects-subtitle{
+  max-width:720px;
+  margin:10px auto 0;
+  text-align:center;
+  color:var(--muted);
+  font-size:.98rem;
+  line-height:1.75;
+}
+
+/* Section */
+.faculty-section{
+  padding:56px 0 78px;
+}
+
+.faculty-group{
+  margin-bottom:56px;
+}
+
+.faculty-group:last-child{
+  margin-bottom:0;
+}
+
+.faculty-group-title{
+  margin:0 0 24px;
+  text-align:center;
+  font-family:var(--font-heading);
+  color:var(--navy);
+  font-size:clamp(20px,2.5vw,28px);
+}
+
+/* ✅ Grid กลางจริง */
+.faculty-grid{
+  display:flex;
+  justify-content:center;
+  align-items:stretch;
+  gap:28px;
+  flex-wrap:wrap;
+  width:100%;
+  margin:0 auto;
+}
+
+/* หัวหน้าหลักสูตร */
+.faculty-grid-head .faculty-card{
+  max-width:380px;
+}
+
+/* อาจารย์ประจำหลักสูตร */
+.faculty-group .faculty-grid:not(.faculty-grid-head) .faculty-card{
+  max-width:380px;
+}
+
+/* Card */
+.faculty-card{
+  position:relative;
+  width:100%;
+  flex:0 1 380px;
+  display:flex;
+  flex-direction:column;
+  overflow:hidden;
+  border-radius:30px;
+  background:rgba(255,255,255,.92);
+  border:1px solid rgba(203,213,225,.9);
+  box-shadow:0 20px 50px rgba(15,23,42,.1);
+  backdrop-filter:blur(14px);
+  opacity:0;
+  transform:translateY(28px);
+  transition:
+    opacity .65s ease,
+    transform .65s ease,
+    box-shadow .28s ease,
+    border-color .28s ease;
+}
+
+.faculty-card::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:
+    radial-gradient(circle at 22% 0%, rgba(29,155,240,.16), transparent 34%),
+    linear-gradient(145deg, rgba(255,255,255,.32), transparent 52%);
+  pointer-events:none;
+}
+
+.faculty-card.is-visible{
+  opacity:1;
+  transform:translateY(0);
+}
+
+.faculty-card:hover{
+  transform:translateY(-10px);
+  border-color:rgba(0,71,155,.35);
+  box-shadow:0 30px 74px rgba(15,23,42,.18);
+}
+
+/* Photo */
+.faculty-photo{
+  position:relative;
+  height:330px;
+  display:flex;
+  align-items:flex-end;
+  justify-content:center;
+  overflow:hidden;
+  background:
+    radial-gradient(circle at center 38%, rgba(29,155,240,.18), transparent 38%),
+    linear-gradient(160deg,#eaf4ff 0%,#fff 70%);
+}
+
+.faculty-photo::before{
+  content:"";
+  position:absolute;
+  top:52px;
+  left:50%;
+  width:230px;
+  height:230px;
+  transform:translateX(-50%);
+  border-radius:50%;
+  background:linear-gradient(135deg, rgba(0,71,155,.18), rgba(29,155,240,.08));
+}
+
+.faculty-photo::after{
+  content:"";
+  position:absolute;
+  left:50%;
+  bottom:18px;
+  width:72%;
+  height:40px;
+  transform:translateX(-50%);
+  border-radius:999px;
+  background:rgba(15,23,42,.16);
+  filter:blur(16px);
+}
+
+.faculty-photo img{
+  position:relative;
+  z-index:2;
+  width:100%;
+  height:320px;
+  object-fit:contain;
+  object-position:center bottom;
+  filter:drop-shadow(0 20px 22px rgba(15,23,42,.25));
+  transition:transform .35s ease;
+}
+
+.faculty-card:hover .faculty-photo img{
+  transform:scale(1.06) translateY(-6px);
+}
+
+/* Content */
+.faculty-content{
+  position:relative;
+  z-index:2;
+  display:flex;
+  flex-direction:column;
+  flex:1;
+  padding:24px;
+}
+
+.faculty-content.clean{
+  text-align:center;
+  align-items:center;
+}
+
+.faculty-tag{
+  width:max-content;
+  margin:0 auto 11px;
+  padding:6px 12px;
+  border-radius:999px;
+  color:var(--primary);
+  background:rgba(0,71,155,.08);
+  border:1px solid rgba(0,71,155,.16);
+  font-size:.76rem;
+  font-weight:800;
+}
+
+.faculty-content h3{
+  min-height:64px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  margin:0;
+  color:var(--navy);
+  font-family:var(--font-heading);
+  font-size:clamp(10px,1.5vw,16px);
+  line-height:1.35;
+  text-align:center;
+}
+
+.faculty-btn{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+  width:100%;
+  margin-top:18px;
+  padding:12px 18px;
+  border-radius:16px;
+  color:#fff;
+  text-decoration:none;
+  font-weight:800;
+  background:linear-gradient(135deg,var(--primary),var(--navy));
+  box-shadow:0 14px 28px rgba(0,71,155,.24);
+  transition:.24s ease;
+}
+
+.faculty-btn::after{
+  content:"→";
+  transition:.2s ease;
+}
+
+.faculty-btn:hover{
+  transform:translateY(-3px);
+  box-shadow:0 18px 38px rgba(0,71,155,.34);
+}
+
+.faculty-btn:hover::after{
+  transform:translateX(5px);
+}
+
+/* Tablet */
+@media(max-width:1000px){
+  .faculty-section{
+    padding:48px 0 66px;
+  }
+
+  .faculty-card{
+    flex-basis:360px;
+    max-width:360px;
+  }
+}
+
+/* Mobile */
+@media(max-width:680px){
+  .projects-hero{
+    padding:28px 0 18px;
+  }
+
+  .projects-subtitle{
+    font-size:.94rem;
+  }
+
+  .faculty-section{
+    padding:42px 0 56px;
+  }
+
+  .faculty-group{
+    margin-bottom:44px;
+  }
+
+  .faculty-grid{
+    gap:24px;
+  }
+
+  .faculty-card{
+    flex:0 1 100%;
+    max-width:100%;
+    border-radius:24px;
+  }
+
+  .faculty-photo{
+    height:300px;
+  }
+
+  .faculty-photo img{
+    height:292px;
+  }
+
+  .faculty-content{
+    padding:22px;
+  }
+}
+
+/* Small mobile */
+@media(max-width:420px){
+  .faculty-photo{
+    height:270px;
+  }
+
+  .faculty-photo img{
+    height:262px;
+  }
+
+  .faculty-content h3{
+    font-size:18px;
+  }
+}

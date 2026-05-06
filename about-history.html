@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="description" content="ความเป็นมาของหลักสูตร">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ความเป็นมาของหลักสูตร | CAI - PIM</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@300;400;500;600;700&family=Kanit:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/style.css">
+  <script defer src="js/script.js"></script>
+
+  <style>
+    :root{
+      --primary:#00479b;
+      --navy:#001b44;
+      --purple:#6d28d9;
+      --text:#0f172a;
+      --muted:#475569;
+      --border:#d8e2f0;
+      --font-sans:"IBM Plex Sans Thai",sans-serif;
+      --font-heading:"Kanit","IBM Plex Sans Thai",sans-serif;
+    }
+
+    *{box-sizing:border-box}
+
+    body{
+      margin:0;
+      font-family:var(--font-sans);
+      color:var(--text);
+      background:
+        radial-gradient(circle at 12% 8%, rgba(0,71,155,.14), transparent 28%),
+        radial-gradient(circle at 88% 18%, rgba(109,40,217,.12), transparent 30%),
+        linear-gradient(180deg,#f8fbff 0%, #edf4ff 45%, #f4f8ff 100%);
+    }
+
+    h1,h2,h3{
+      font-family:var(--font-heading);
+    }
+
+    .program-page{
+      overflow:hidden;
+    }
+
+    .program-simple-hero{
+      background:#fff;
+      padding:42px 0 28px;
+      border-bottom:1px solid var(--border);
+    }
+
+    .program-kicker-simple{
+      margin:0 0 8px;
+      text-align:center;
+      color:var(--primary);
+      font-size:.78rem;
+      font-weight:800;
+      letter-spacing:.16em;
+      text-transform:uppercase;
+    }
+
+    .projects-title{
+      margin:0 0 6px;
+      font-family:var(--font-heading);
+      font-weight:700;
+      font-size:clamp(22px,3vw,28px);
+      color:var(--navy);
+      text-align:center;
+      position:relative;
+    }
+
+    .projects-title::after{
+      content:"";
+      display:block;
+      width:80px;
+      height:3px;
+      margin:12px auto 0;
+      border-radius:999px;
+      background:var(--primary);
+    }
+
+    .projects-subtitle{
+      max-width:760px;
+      margin:10px auto 0;
+      text-align:center;
+      color:var(--muted);
+      font-size:.98rem;
+      line-height:1.75;
+    }
+
+    .program-section{
+      padding:34px 0;
+    }
+
+    .section-heading{
+      text-align:center;
+      margin-bottom:24px;
+    }
+
+    .section-heading h2{
+      margin:0;
+      color:var(--navy);
+      font-size:clamp(22px,3vw,32px);
+    }
+
+    .section-heading h2::after{
+      content:"";
+      display:block;
+      width:80px;
+      height:3px;
+      margin:10px auto 0;
+      border-radius:999px;
+      background:var(--primary);
+    }
+
+    /* เปลี่ยนเป็นเรียงลงมา */
+    .program-grid{
+      display:grid;
+      grid-template-columns:1fr;
+      gap:22px;
+      max-width:980px;
+      margin:0 auto;
+    }
+
+    .program-card,
+    .feature-card,
+    .outcome-box{
+      border-radius:26px;
+      border:1px solid var(--border);
+      box-shadow:0 16px 40px rgba(15,23,42,.08);
+    }
+
+    .program-card{
+      position:relative;
+      overflow:hidden;
+      padding:28px;
+      background:#fff;
+      transition:.25s ease;
+    }
+
+    .program-card::before{
+      content:"";
+      position:absolute;
+      top:0;
+      left:0;
+      width:100%;
+      height:6px;
+      background:linear-gradient(90deg,var(--primary),var(--purple));
+    }
+
+    .program-card:hover,
+    .feature-card:hover{
+      transform:translateY(-6px);
+      box-shadow:0 24px 55px rgba(15,23,42,.14);
+    }
+
+    .program-card h2{
+      margin:0 0 18px;
+      color:var(--navy);
+      font-size:1.45rem;
+      text-align:left;
+    }
+
+    .program-card p{
+      margin:0;
+      color:var(--muted);
+      line-height:1.85;
+    }
+
+ .name-box{
+  position:relative;
+  padding:20px 0 20px 22px;
+  margin-bottom:0;
+  background:transparent;
+  border:0;
+  border-left:4px solid rgba(0,71,155,.18);
+}
+
+.name-box:last-child{
+  margin-bottom:0;
+}
+
+.name-label{
+  display:block;
+  margin-bottom:6px;
+  color:var(--primary);
+  font-family:var(--font-heading);
+  font-weight:700;
+  font-size:.95rem;
+}
+
+.name-box p{
+  margin:0;
+  color:#1e293b;
+  font-weight:600;
+  line-height:1.75;
+}
+
+
+    .name-box:last-child{
+      margin-bottom:0;
+    }
+
+    .name-box strong{
+      min-height:66px;
+      display:grid;
+      place-items:center;
+      border-radius:16px;
+      color:#fff;
+      background:linear-gradient(135deg,var(--primary),var(--purple));
+      font-family:var(--font-heading);
+    }
+
+    .name-box p{
+      font-weight:700;
+      color:#1e293b;
+    }
+
+    /* เปลี่ยนชื่อปริญญาให้เรียงลงมา */
+    .degree-list{
+  display:grid;
+  grid-template-columns:1fr;
+  gap:0;
+}
+
+    .degree-item{
+  padding:18px 0 18px 22px;
+  background:transparent;
+  border:0;
+  border-left:4px solid rgba(0,71,155,.18);
+  color:#1e293b;
+  line-height:1.7;
+}
+
+.degree-item + .degree-item{
+  border-top:1px solid #e5edf7;
+}
+
+.degree-item strong{
+  display:block;
+  color:var(--primary);
+  margin-bottom:6px;
+  font-family:var(--font-heading);
+  font-size:.95rem;
+}
+
+    .history-card{
+      background:
+        radial-gradient(circle at 90% 10%, rgba(109,40,217,.10), transparent 32%),
+        linear-gradient(180deg,#ffffff,#f8fbff);
+    }
+
+    .history-card p + p{
+      margin-top:14px;
+    }
+
+    .feature-grid{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:18px;
+      margin-top:22px;
+    }
+
+    .feature-card{
+      position:relative;
+      overflow:hidden;
+      padding:24px;
+      background:#fff;
+      transition:.25s ease;
+    }
+
+    .feature-icon{
+      width:56px;
+      height:56px;
+      display:grid;
+      place-items:center;
+      border-radius:18px;
+      background:linear-gradient(135deg,var(--primary),var(--purple));
+      color:#fff;
+      font-size:1.45rem;
+      margin-bottom:14px;
+    }
+
+    .feature-card h3{
+      margin:0 0 8px;
+      color:var(--navy);
+    }
+
+    .feature-card p{
+      margin:0;
+      color:var(--muted);
+      line-height:1.75;
+    }
+
+    .outcome-box{
+      position:relative;
+      overflow:hidden;
+      padding:38px;
+      color:#fff;
+      background:linear-gradient(135deg,#001b44,#00479b 60%,#6d28d9);
+    }
+
+    .outcome-box::after{
+      content:"AI";
+      position:absolute;
+      right:34px;
+      bottom:-22px;
+      font-family:var(--font-heading);
+      font-size:8rem;
+      font-weight:900;
+      color:rgba(255,255,255,.08);
+    }
+
+    .outcome-box h2{
+      position:relative;
+      z-index:1;
+      margin:0 0 12px;
+      color:#fff;
+      font-size:1.8rem;
+    }
+
+    .outcome-box p{
+      position:relative;
+      z-index:1;
+      margin:0;
+      color:#edf5ff;
+      line-height:1.9;
+      max-width:900px;
+    }
+
+    @media(max-width:980px){
+      .feature-grid{
+        grid-template-columns:1fr;
+      }
+    }
+
+    @media(max-width:560px){
+      .program-card,
+      .feature-card,
+      .outcome-box{
+        border-radius:22px;
+        padding:22px;
+      }
+
+      .name-box{
+        grid-template-columns:1fr;
+      }
+
+      .outcome-box::after{
+        font-size:5rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header class="topbar">
+    <div class="container nav-row">
+      <a class="brand brand-logos" href="index.html">
+        <img src="assets/images/et-logo.png" alt="Engineering and Technology Logo">
+        <img src="assets/images/Logo.png" alt="CAI Logo">
+      </a>
+
+      <nav class="nav">
+        <button class="nav-toggle" aria-expanded="false">☰</button>
+        <ul class="menu">
+          <li><a href="index.html">หน้าหลัก</a></li>
+
+          <li class="has-sub">
+            <a class="sub-toggle" aria-haspopup="true" aria-expanded="false">เกี่ยวกับหลักสูตร</a>
+            <ul class="submenu">
+              <li><a href="about-history.html">ความเป็นมาของหลักสูตร</a></li>
+              <li><a href="about-info.html">ข้อมูลหลักสูตร</a></li>
+              <li><a href="curriculum.html">แผนการเรียน</a></li>
+            </ul>
+          </li>
+
+          <li><a href="faculty.html">บุคลากร</a></li>
+          <li><a href="projects.html">ผลงาน/กิจกรรม</a></li>
+          <li><a href="services.html">บริการวิชาการ</a></li>
+          <li><a href="alumni.html">สำหรับบัณฑิต</a></li>
+          <li><a class="btn-apply" href="admission.html">สมัครเรียน</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="program-page">
+
+    <section class="projects-hero program-simple-hero">
+      <div class="container">
+        <p class="program-kicker-simple">Computer Engineering & Artificial Intelligence</p>
+
+        <h1 class="projects-title">ความเป็นมาของหลักสูตร</h1>
+
+        <p class="projects-subtitle">
+          หลักสูตรวิศวกรรมคอมพิวเตอร์และปัญญาประดิษฐ์ มุ่งเน้นการเรียนรู้ด้านวิศวกรรมคอมพิวเตอร์
+          การพัฒนาซอฟต์แวร์ ระบบอัจฉริยะ และปัญญาประดิษฐ์ พร้อมประสบการณ์จากการลงมือทำจริง
+        </p>
+      </div>
+    </section>
+
+    <section class="container program-section">
+      <div class="program-grid">
+
+        <article class="program-card">
+  <h2>ชื่อหลักสูตร</h2>
+
+  <div class="name-box">
+    <span class="name-label">ภาษาไทย</span>
+    <p>
+      หลักสูตรวิศวกรรมศาสตรบัณฑิต<br>
+      สาขาวิชาวิศวกรรมคอมพิวเตอร์และปัญญาประดิษฐ์
+    </p>
+  </div>
+
+  <div class="name-box">
+    <span class="name-label">ภาษาอังกฤษ</span>
+    <p>
+      Bachelor of Engineering Program in Computer Engineering and Artificial Intelligence
+    </p>
+  </div>
+</article>
+
+        <article class="program-card">
+          <h2>ชื่อปริญญา</h2>
+
+          <div class="degree-list">
+            <div class="degree-item">
+              <strong>ภาษาไทย ชื่อเต็ม</strong>
+              วิศวกรรมศาสตรบัณฑิต สาขาวิชาวิศวกรรมคอมพิวเตอร์และปัญญาประดิษฐ์
+            </div>
+
+            <div class="degree-item">
+              <strong>ภาษาไทย อักษรย่อ</strong>
+              วศ.บ. สาขาวิชาวิศวกรรมคอมพิวเตอร์และปัญญาประดิษฐ์
+            </div>
+
+            <div class="degree-item">
+              <strong>English Full Name</strong>
+              Bachelor of Engineering (Computer Engineering and Artificial Intelligence)
+            </div>
+
+            <div class="degree-item">
+              <strong>English Abbreviation</strong>
+              B.Eng. (Computer Engineering and Artificial Intelligence)
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <section class="container program-section">
+      <div class="section-heading">
+        <h2>ความเป็นมาและจุดเด่นของสาขาวิชา</h2>
+      </div>
+
+      <article class="program-card history-card">
+        <p>
+          วิศวกรรมคอมพิวเตอร์และปัญญาประดิษฐ์เป็นศาสตร์ที่มีบทบาทสำคัญต่อการพัฒนาองค์กรในยุคดิจิทัล
+          เทคโนโลยีด้านระบบคอมพิวเตอร์ ซอฟต์แวร์ ข้อมูล และ AI ถูกนำไปใช้เพื่อเพิ่มประสิทธิภาพ
+          ลดขั้นตอนการทำงาน และสร้างนวัตกรรมใหม่ที่ตอบโจทย์อุตสาหกรรม
+        </p>
+
+        <p>
+          หลักสูตรนี้จึงออกแบบให้ผู้เรียนมีทั้งความรู้เชิงวิศวกรรม ทักษะการเขียนโปรแกรม การคิดวิเคราะห์
+          การออกแบบระบบ และการประยุกต์ใช้ปัญญาประดิษฐ์ ผ่านการเรียนรู้เชิงปฏิบัติและการทำโปรเจกต์จริง
+          เพื่อเตรียมความพร้อมสู่สายงานเทคโนโลยีในอนาคต
+        </p>
+      </article>
+
+      <div class="feature-grid">
+        <article class="feature-card">
+          <div class="feature-icon">💻</div>
+          <h3>Computer Engineering</h3>
+          <p>เรียนรู้ระบบคอมพิวเตอร์ โครงสร้างซอฟต์แวร์ เครือข่าย และการออกแบบระบบอย่างเป็นวิศวกรรม</p>
+        </article>
+
+        <article class="feature-card">
+          <div class="feature-icon">🤖</div>
+          <h3>Artificial Intelligence</h3>
+          <p>ต่อยอดสู่ AI, Data, Machine Learning และการสร้างระบบอัจฉริยะที่นำไปใช้ได้จริง</p>
+        </article>
+
+        <article class="feature-card">
+          <div class="feature-icon">🏢</div>
+          <h3>Work-based Learning</h3>
+          <p>เชื่อมโยงการเรียนกับภาคธุรกิจ ผ่านโปรเจกต์ การฝึกงาน และประสบการณ์จากองค์กรชั้นนำ</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="container program-section">
+      <div class="outcome-box">
+        <h2>ผลลัพธ์การเรียนรู้ของหลักสูตร</h2>
+        <p>
+          ผู้เรียนจะได้รับการพัฒนาความรู้และทักษะตามมาตรฐานระดับปริญญาตรี
+          โดยมุ่งเน้นความสามารถด้านวิศวกรรมคอมพิวเตอร์ ปัญญาประดิษฐ์ การคิดเชิงระบบ
+          การวิเคราะห์ปัญหา การเขียนโปรแกรม การพัฒนาเทคโนโลยี และการสร้างนวัตกรรมที่ตอบโจทย์การใช้งานจริง
+        </p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+
+        <div>
+          <h4>ติดต่อคณะ / สาขา</h4>
+          <p>คณะวิศวกรรมศาสตร์และเทคโนโลยี</p>
+          <p>สถาบันการจัดการปัญญาภิวัฒน์ (PIM)</p>
+          <p>85/1 หมู่ 2 ถ.แจ้งวัฒนะ อ.ปากเกร็ด จ.นนทบุรี 11120</p>
+          <p>โทร 02-855-0000</p>
+        </div>
+
+        <div>
+          <h4>ช่องทางออนไลน์</h4>
+          <ul class="social-list">
+            <li>
+              <a href="https://www.facebook.com/ET.PIM" target="_blank" rel="noopener">
+                <span class="social-icon">
+                  <img src="assets/images/facebook.png" alt="Facebook">
+                </span>
+                Engineering and Technology (PANYAPIWAT)
+              </a>
+            </li>
+
+            <li>
+              <a href="https://www.instagram.com/et.pim?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" rel="noopener">
+                <span class="social-icon">
+                  <img src="assets/images/instagram.png" alt="Instagram">
+                </span>
+                et.pim
+              </a>
+            </li>
+
+            <li>
+              <a href="https://www.tiktok.com/@et.pim?is_from_webapp=1&sender_device=pc" target="_blank" rel="noopener">
+                <span class="social-icon">
+                  <img src="assets/images/tiktok.png" alt="TikTok">
+                </span>
+                et.pim
+              </a>
+            </li>
+
+            <li>
+              <a href="https://et.pim.ac.th/wp/" target="_blank" rel="noopener">
+                <span class="social-icon">
+                  <img src="assets/images/web.png" alt="Website">
+                </span>
+                et.pim.ac.th
+              </a>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="copyright">
+      Copyright © Panyapiwat Institute of Management
+    </div>
+  </footer>
+
+  <script src="https://www.gstatic.com/dialogflow-console/fast/messenger/bootstrap.js?v=1"></script>
+  <df-messenger
+    intent="WELCOME"
+    chat-title="Chatbot"
+    agent-id="22b9729d-f158-4a68-88f7-1cf5fd8a97ad"
+    language-code="th">
+  </df-messenger>
+</body>
+</html>

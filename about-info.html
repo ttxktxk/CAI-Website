@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="description" content="ข้อมูลหลักสูตร CAI">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ข้อมูลหลักสูตร | CAI - PIM</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@300;400;500;600;700&family=Kanit:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/style.css">
+  <script defer src="js/script.js"></script>
+
+  <style>
+    :root{
+      --primary:#00479b;
+      --navy:#001b44;
+      --purple:#6d28d9;
+      --text:#0f172a;
+      --muted:#475569;
+      --border:#d8e2f0;
+      --font-sans:"IBM Plex Sans Thai",sans-serif;
+      --font-heading:"Kanit","IBM Plex Sans Thai",sans-serif;
+    }
+
+    *{box-sizing:border-box}
+
+    body{
+      margin:0;
+      font-family:var(--font-sans);
+      color:var(--text);
+      background:
+        radial-gradient(circle at 12% 8%, rgba(0,71,155,.14), transparent 28%),
+        radial-gradient(circle at 88% 18%, rgba(109,40,217,.12), transparent 30%),
+        linear-gradient(180deg,#f8fbff 0%, #edf4ff 45%, #f4f8ff 100%);
+    }
+
+    h1,h2,h3,h4{
+      font-family:var(--font-heading);
+    }
+
+    .program-page{
+      overflow:hidden;
+    }
+
+    .program-simple-hero{
+      background:#fff;
+      padding:42px 0 28px;
+      border-bottom:1px solid var(--border);
+    }
+
+    .program-kicker-simple{
+      margin:0 0 8px;
+      text-align:center;
+      color:var(--primary);
+      font-size:.78rem;
+      font-weight:800;
+      letter-spacing:.16em;
+      text-transform:uppercase;
+    }
+
+    .projects-title{
+      margin:0 0 6px;
+      font-family:var(--font-heading);
+      font-weight:700;
+      font-size:clamp(22px,3vw,28px);
+      color:var(--navy);
+      text-align:center;
+      position:relative;
+    }
+
+    .projects-title::after{
+      content:"";
+      display:block;
+      width:80px;
+      height:3px;
+      margin:12px auto 0;
+      border-radius:999px;
+      background:var(--primary);
+    }
+
+    .projects-subtitle{
+      max-width:820px;
+      margin:10px auto 0;
+      text-align:center;
+      color:var(--muted);
+      font-size:.98rem;
+      line-height:1.75;
+    }
+
+    .program-section{
+      padding:34px 0;
+    }
+
+    .section-heading{
+      text-align:center;
+      margin-bottom:24px;
+    }
+
+    .section-heading h2{
+      margin:0;
+      color:var(--navy);
+      font-size:clamp(22px,3vw,32px);
+    }
+
+    .section-heading h2::after{
+      content:"";
+      display:block;
+      width:80px;
+      height:3px;
+      margin:10px auto 0;
+      border-radius:999px;
+      background:var(--primary);
+    }
+
+    .program-grid{
+      display:grid;
+      grid-template-columns:1fr;
+      gap:22px;
+      max-width:980px;
+      margin:0 auto;
+    }
+
+    .program-card,
+    .feature-card,
+    .outcome-box{
+      border-radius:26px;
+      border:1px solid var(--border);
+      box-shadow:0 16px 40px rgba(15,23,42,.08);
+    }
+
+    .program-card{
+      position:relative;
+      overflow:hidden;
+      padding:28px;
+      background:#fff;
+      transition:.25s ease;
+    }
+
+    .program-card::before{
+      content:"";
+      position:absolute;
+      top:0;
+      left:0;
+      width:100%;
+      height:6px;
+      background:linear-gradient(90deg,var(--primary),var(--purple));
+    }
+
+    .program-card:hover,
+    .feature-card:hover{
+      transform:translateY(-6px);
+      box-shadow:0 24px 55px rgba(15,23,42,.14);
+    }
+
+    .program-card h2{
+      margin:0 0 18px;
+      color:var(--navy);
+      font-size:1.45rem;
+      text-align:left;
+    }
+
+    .program-card p{
+      margin:0;
+      color:var(--muted);
+      line-height:1.85;
+    }
+
+    .summary-grid{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:18px;
+      max-width:980px;
+      margin:0 auto;
+    }
+
+    .feature-card{
+      position:relative;
+      overflow:hidden;
+      padding:24px;
+      background:#fff;
+      transition:.25s ease;
+    }
+
+    .feature-icon{
+      width:56px;
+      height:56px;
+      display:grid;
+      place-items:center;
+      border-radius:18px;
+      background:linear-gradient(135deg,var(--primary),var(--purple));
+      color:#fff;
+      font-size:1.45rem;
+      margin-bottom:14px;
+    }
+
+    .feature-card h3{
+      margin:0 0 8px;
+      color:var(--navy);
+    }
+
+    .feature-card p{
+      margin:0;
+      color:var(--muted);
+      line-height:1.75;
+    }
+
+    .feature-card strong{
+      display:block;
+      margin-top:8px;
+      color:var(--primary);
+      font-size:2rem;
+      font-family:var(--font-heading);
+    }
+
+    .info-list{
+      display:grid;
+      gap:0;
+    }
+
+    .info-row{
+      display:grid;
+      grid-template-columns:1fr auto;
+      gap:18px;
+      align-items:center;
+      padding:18px 0 18px 22px;
+      border-left:4px solid rgba(0,71,155,.18);
+      color:#1e293b;
+    }
+
+    .info-row + .info-row{
+      border-top:1px solid #e5edf7;
+    }
+
+    .info-row h4{
+      margin:0 0 6px;
+      color:var(--primary);
+      font-size:.98rem;
+    }
+
+    .info-row p{
+      margin:0;
+      color:var(--muted);
+      line-height:1.7;
+    }
+
+    .credit-num{
+      white-space:nowrap;
+      padding:9px 14px;
+      border-radius:999px;
+      background:#eef6ff;
+      color:var(--primary);
+      border:1px solid #cfe1f6;
+      font-weight:800;
+    }
+
+    .sub-note{
+      margin-top:18px;
+      padding:18px 20px;
+      border-radius:20px;
+      background:#f8fbff;
+      border:1px solid #dbe4f0;
+      color:var(--muted);
+      line-height:1.8;
+    }
+
+    .sub-note strong{
+      color:var(--primary);
+    }
+
+    .outcome-box{
+      position:relative;
+      overflow:hidden;
+      padding:38px;
+      color:#fff;
+      background:linear-gradient(135deg,#001b44,#00479b 60%,#6d28d9);
+    }
+
+    .outcome-box::after{
+      content:"136";
+      position:absolute;
+      right:34px;
+      bottom:-30px;
+      font-family:var(--font-heading);
+      font-size:8rem;
+      font-weight:900;
+      color:rgba(255,255,255,.08);
+    }
+
+    .outcome-box h2{
+      position:relative;
+      z-index:1;
+      margin:0 0 12px;
+      color:#fff;
+      font-size:1.8rem;
+    }
+
+    .outcome-box p{
+      position:relative;
+      z-index:1;
+      margin:0;
+      color:#edf5ff;
+      line-height:1.9;
+      max-width:900px;
+    }
+
+    .plo-list{
+      display:grid;
+      gap:0;
+    }
+
+    .plo-item{
+      padding:18px 0 18px 22px;
+      border-left:4px solid rgba(0,71,155,.18);
+    }
+
+    .plo-item + .plo-item{
+      border-top:1px solid #e5edf7;
+    }
+
+    .plo-item span{
+      display:block;
+      margin-bottom:6px;
+      color:var(--primary);
+      font-family:var(--font-heading);
+      font-weight:700;
+      font-size:.95rem;
+    }
+
+    .plo-item p{
+      margin:0;
+      color:var(--muted);
+      line-height:1.8;
+    }
+
+    @media(max-width:980px){
+      .summary-grid{
+        grid-template-columns:1fr;
+      }
+    }
+
+    @media(max-width:560px){
+      .program-card,
+      .feature-card,
+      .outcome-box{
+        border-radius:22px;
+        padding:22px;
+      }
+
+      .info-row{
+        grid-template-columns:1fr;
+      }
+
+      .credit-num{
+        width:max-content;
+      }
+
+      .outcome-box::after{
+        font-size:5rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header class="topbar">
+    <div class="container nav-row">
+      <a class="brand brand-logos" href="index.html">
+        <img src="assets/images/et-logo.png" alt="Engineering and Technology Logo">
+        <img src="assets/images/Logo.png" alt="CAI Logo">
+      </a>
+
+      <nav class="nav">
+        <button class="nav-toggle" aria-expanded="false">☰</button>
+        <ul class="menu">
+          <li><a href="index.html">หน้าหลัก</a></li>
+
+          <li class="has-sub">
+            <a class="sub-toggle" aria-haspopup="true" aria-expanded="false">เกี่ยวกับหลักสูตร</a>
+            <ul class="submenu">
+              <li><a href="about-history.html">ความเป็นมาของหลักสูตร</a></li>
+              <li><a href="about-info.html">ข้อมูลหลักสูตร</a></li>
+              <li><a href="curriculum.html">แผนการเรียน</a></li>
+            </ul>
+          </li>
+
+          <li><a href="faculty.html">บุคลากร</a></li>
+          <li><a href="projects.html">ผลงาน/กิจกรรม</a></li>
+          <li><a href="services.html">บริการวิชาการ</a></li>
+          <li><a href="alumni.html">สำหรับบัณฑิต</a></li>
+          <li><a class="btn-apply" href="admission.html">สมัครเรียน</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="program-page">
+
+    <section class="projects-hero program-simple-hero">
+      <div class="container">
+        <p class="program-kicker-simple">Computer Engineering & Artificial Intelligence</p>
+
+        <h1 class="projects-title">ข้อมูลหลักสูตร</h1>
+
+        <p class="projects-subtitle">
+          หลักสูตรวิศวกรรมคอมพิวเตอร์และปัญญาประดิษฐ์ ออกแบบให้ผู้เรียนมีพื้นฐานด้านวิศวกรรม
+          การเขียนโปรแกรม ระบบคอมพิวเตอร์ ปัญญาประดิษฐ์ และการเรียนรู้ภาคปฏิบัติ
+          เพื่อพร้อมต่อยอดสู่สายงานเทคโนโลยีในอนาคต
+        </p>
+      </div>
+    </section>
+
+    <section class="container program-section">
+      <div class="summary-grid">
+        <article class="feature-card">
+          <div class="feature-icon">🎓</div>
+          <h3>หน่วยกิตรวมตลอดหลักสูตร</h3>
+          <p>จำนวนหน่วยกิตรวมทั้งหมดของหลักสูตร</p>
+          <strong>136</strong>
+        </article>
+
+        <article class="feature-card">
+          <div class="feature-icon">📚</div>
+          <h3>หมวดวิชาหลัก</h3>
+          <p>ประกอบด้วยหมวดศึกษาทั่วไป หมวดวิชาเฉพาะ และหมวดวิชาเลือกเสรี</p>
+          <strong>3</strong>
+        </article>
+
+        <article class="feature-card">
+          <div class="feature-icon">💻</div>
+          <h3>หมวดวิชาเฉพาะ</h3>
+          <p>เน้นวิศวกรรมคอมพิวเตอร์ ปัญญาประดิษฐ์ และการเรียนรู้ภาคปฏิบัติ</p>
+          <strong>100</strong>
+        </article>
+      </div>
+    </section>
+
+    <section class="container program-section">
+      <div class="program-grid">
+
+        <article class="program-card">
+          <h2>1. หมวดวิชาศึกษาทั่วไป</h2>
+
+          <div class="info-list">
+            <div class="info-row">
+              <div>
+                <h4>หมวดอัตลักษณ์ของพีไอเอ็ม (PIM)</h4>
+                <p>รายวิชาที่ส่งเสริมอัตลักษณ์ แนวคิด และทักษะสำคัญของสถาบัน</p>
+              </div>
+              <div class="credit-num">12 หน่วยกิต</div>
+            </div>
+
+            <div class="info-row">
+              <div>
+                <h4>หมวดศาสตร์แห่งชีวิต</h4>
+                <p>พัฒนาทักษะชีวิต มุมมองรอบด้าน และการเรียนรู้ในศตวรรษใหม่</p>
+              </div>
+              <div class="credit-num">ไม่น้อยกว่า 18 หน่วยกิต</div>
+            </div>
+          </div>
+        </article>
+
+        <article class="program-card">
+          <h2>2. หมวดวิชาเฉพาะ</h2>
+
+          <div class="info-list">
+            <div class="info-row">
+              <div>
+                <h4>กลุ่มวิชาพื้นฐานทางวิทยาศาสตร์และคณิตศาสตร์</h4>
+                <p>ปูพื้นฐานด้านคณิตศาสตร์ วิทยาศาสตร์ และการคิดเชิงวิเคราะห์</p>
+              </div>
+              <div class="credit-num">14 หน่วยกิต</div>
+            </div>
+
+            <div class="info-row">
+              <div>
+                <h4>กลุ่มวิชาพื้นฐานทางวิศวกรรม</h4>
+                <p>เสริมความรู้พื้นฐานที่จำเป็นต่อการเรียนในสายวิศวกรรม</p>
+              </div>
+              <div class="credit-num">14 หน่วยกิต</div>
+            </div>
+
+            <div class="info-row">
+              <div>
+                <h4>กลุ่มวิชาเฉพาะทางวิศวกรรมคอมพิวเตอร์และปัญญาประดิษฐ์</h4>
+                <p>เน้นองค์ความรู้ด้านระบบคอมพิวเตอร์ ซอฟต์แวร์ ข้อมูล และ AI</p>
+              </div>
+              <div class="credit-num">51 หน่วยกิต</div>
+            </div>
+
+            <div class="info-row">
+              <div>
+                <h4>กลุ่มวิชาโครงงานทางวิศวกรรมคอมพิวเตอร์และปัญญาประดิษฐ์</h4>
+                <p>ฝึกประยุกต์ความรู้ผ่านการทำโครงงานจริง</p>
+              </div>
+              <div class="credit-num">3 หน่วยกิต</div>
+            </div>
+
+            <div class="info-row">
+              <div>
+                <h4>กลุ่มวิชาเลือกเฉพาะสาขา</h4>
+                <p>เลือกเรียนตามความสนใจเฉพาะด้านของผู้เรียน</p>
+              </div>
+              <div class="credit-num">3 หน่วยกิต</div>
+            </div>
+
+            <div class="info-row">
+              <div>
+                <h4>กลุ่มวิชาการเรียนรู้ภาคปฏิบัติ</h4>
+                <p>เรียนรู้จากประสบการณ์จริงและการฝึกปฏิบัติกับสถานประกอบการ</p>
+              </div>
+              <div class="credit-num">15 หน่วยกิต</div>
+            </div>
+          </div>
+
+          <div class="sub-note">
+            <strong>กลุ่มวิชาเลือกเฉพาะสาขา</strong><br>
+            1) กลุ่มวิชาเลือกเฉพาะด้านวิศวกรรมคอมพิวเตอร์<br>
+            2) กลุ่มวิชาเลือกเฉพาะด้านปัญญาประดิษฐ์
+          </div>
+        </article>
+
+        <article class="program-card">
+          <h2>3. หมวดวิชาเลือกเสรี</h2>
+
+          <div class="info-row">
+            <div>
+              <h4>วิชาเลือกเสรี</h4>
+              <p>ผู้เรียนสามารถเลือกเรียนรายวิชาตามความสนใจ เพื่อเสริมความรู้และทักษะเพิ่มเติม</p>
+            </div>
+            <div class="credit-num">6 หน่วยกิต</div>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <section class="container program-section">
+      <div class="outcome-box">
+        <h2>รวมตลอดหลักสูตร</h2>
+        <p>
+          จำนวนหน่วยกิตรวมทั้งหมดของหลักสูตรวิศวกรรมคอมพิวเตอร์และปัญญาประดิษฐ์ คือ
+          <strong>136 หน่วยกิต</strong>
+        </p>
+      </div>
+    </section>
+
+    <section class="container program-section">
+      <div class="section-heading">
+        <h2>ผลลัพธ์การเรียนรู้ของหลักสูตร</h2>
+      </div>
+
+      <article class="program-card">
+        <p>
+          จากการวิเคราะห์ข้อมูลที่จำเป็นของผู้มีส่วนได้เสียที่เกี่ยวข้องกับหลักสูตรวิศวกรรมคอมพิวเตอร์และปัญญาประดิษฐ์
+          สามารถระบุผลลัพธ์การเรียนรู้ของหลักสูตรได้ดังต่อไปนี้
+        </p>
+
+        <br>
+
+        <div class="plo-list">
+          <div class="plo-item">
+            <span>PLO1</span>
+            <p>ใช้หลักการทางวิศวกรรม วิทยาศาสตร์ และคณิตศาสตร์ เพื่อระบุ กำหนดและแก้ไขปัญหาทางวิศวกรรมคอมพิวเตอร์และปัญญาประดิษฐ์</p>
+          </div>
+
+          <div class="plo-item">
+            <span>PLO2</span>
+            <p>ออกแบบทางวิศวกรรมคอมพิวเตอร์และปัญญาประดิษฐ์ เพื่อแก้ปัญหาและตอบสนองความต้องการเฉพาะด้าน โดยคำนึงถึงปัจจัยทางด้านความมั่นคงปลอดภัยทางเทคโนโลยีสารสนเทศ สิ่งแวดล้อม เศรษฐกิจ และวัฒนธรรม</p>
+          </div>
+
+          <div class="plo-item">
+            <span>PLO3</span>
+            <p>สื่อสารให้ผู้รับสารที่หลากหลายรับรู้ได้อย่างถูกต้อง</p>
+          </div>
+
+          <div class="plo-item">
+            <span>PLO4</span>
+            <p>ปฏิบัติตามหลักจริยธรรม จรรยาบรรณ และการตัดสินใจโดยคำนึงถึงผลกระทบของผลลัพธ์ทางวิศวกรรมต่อสังคม เศรษฐศาสตร์ และสิ่งแวดล้อม</p>
+          </div>
+
+          <div class="plo-item">
+            <span>PLO5</span>
+            <p>ปฏิบัติงานทางวิชาชีพวิศวกรรมคอมพิวเตอร์และปัญญาประดิษฐ์อย่างมีประสิทธิภาพ ทั้งในฐานะสมาชิกและผู้นำของทีม</p>
+          </div>
+
+          <div class="plo-item">
+            <span>PLO6</span>
+            <p>พัฒนาและทำการทดลองทางด้านวิศวกรรมคอมพิวเตอร์และปัญญาประดิษฐ์ โดยผ่านการวิเคราะห์ ตีความและสรุปผลข้อมูล</p>
+          </div>
+
+          <div class="plo-item">
+            <span>PLO7</span>
+            <p>ค้นหาและประยุกต์ใช้องค์ความรู้ใหม่ที่จำเป็นในงานด้านวิศวกรรมคอมพิวเตอร์และปัญญาประดิษฐ์</p>
+          </div>
+        </div>
+      </article>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+
+        <div>
+          <h4>ติดต่อคณะ / สาขา</h4>
+          <p>คณะวิศวกรรมศาสตร์และเทคโนโลยี</p>
+          <p>สถาบันการจัดการปัญญาภิวัฒน์ (PIM)</p>
+          <p>85/1 หมู่ 2 ถ.แจ้งวัฒนะ อ.ปากเกร็ด จ.นนทบุรี 11120</p>
+          <p>โทร 02-855-0000</p>
+        </div>
+
+        <div>
+          <h4>ช่องทางออนไลน์</h4>
+          <ul class="social-list">
+            <li>
+              <a href="https://www.facebook.com/ET.PIM" target="_blank" rel="noopener">
+                <span class="social-icon">
+                  <img src="assets/images/facebook.png" alt="Facebook">
+                </span>
+                Engineering and Technology (PANYAPIWAT)
+              </a>
+            </li>
+
+            <li>
+              <a href="https://www.instagram.com/et.pim?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" rel="noopener">
+                <span class="social-icon">
+                  <img src="assets/images/instagram.png" alt="Instagram">
+                </span>
+                et.pim
+              </a>
+            </li>
+
+            <li>
+              <a href="https://www.tiktok.com/@et.pim?is_from_webapp=1&sender_device=pc" target="_blank" rel="noopener">
+                <span class="social-icon">
+                  <img src="assets/images/tiktok.png" alt="TikTok">
+                </span>
+                et.pim
+              </a>
+            </li>
+
+            <li>
+              <a href="https://et.pim.ac.th/wp/" target="_blank" rel="noopener">
+                <span class="social-icon">
+                  <img src="assets/images/web.png" alt="Website">
+                </span>
+                et.pim.ac.th
+              </a>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="copyright">
+      Copyright © Panyapiwat Institute of Management
+    </div>
+  </footer>
+
+  <script src="https://www.gstatic.com/dialogflow-console/fast/messenger/bootstrap.js?v=1"></script>
+  <df-messenger
+    intent="WELCOME"
+    chat-title="Chatbot"
+    agent-id="22b9729d-f158-4a68-88f7-1cf5fd8a97ad"
+    language-code="th">
+  </df-messenger>
+</body>
+</html>

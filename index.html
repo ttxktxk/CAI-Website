@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="description" content="Classic PIM style home with semantic search under hero">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>CAI – Home (Classic)</title>
+
+  <!-- Google Fonts: Kanit + IBM Plex Sans Thai -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@300;400;500;600;700&family=Kanit:wght@400;600;700&display=swap"
+    rel="stylesheet"
+  >
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/style.css">
+
+  <!-- JavaScript -->
+  <script defer src="js/script.js"></script>
+  <script defer src="js/semanticSearch.js"></script>
+</head>
+
+<body>
+
+  <!-- ================= HEADER ================= -->
+  <header class="topbar">
+    <div class="container nav-row">
+
+      <a class="brand brand-logos" href="index.html">
+        <img src="assets/images/et-logo.png" alt="Engineering and Technology Logo">
+        <img src="assets/images/Logo.png" alt="CAI Logo">
+      </a>
+
+      <nav class="nav">
+        <button class="nav-toggle" aria-expanded="false">☰</button>
+
+        <ul class="menu">
+          <li><a href="index.html">หน้าหลัก</a></li>
+
+          <li class="has-sub">
+            <a class="sub-toggle" aria-haspopup="true" aria-expanded="false">
+              เกี่ยวกับหลักสูตร
+            </a>
+
+            <ul class="submenu" aria-label="เมนู เกี่ยวกับหลักสูตร">
+              <li><a href="about-history.html">ความเป็นมาของหลักสูตร</a></li>
+              <li><a href="about-info.html">ข้อมูลหลักสูตร</a></li>
+              <li><a href="curriculum.html">แผนการเรียน</a></li>
+            </ul>
+          </li>
+
+          <li><a href="faculty.html">บุคลากร</a></li>
+          <li><a href="projects.html">ผลงาน/กิจกรรม</a></li>
+          <li><a href="services.html">บริการวิชาการ</a></li>
+          <li><a href="alumni.html">สำหรับบัณฑิต</a></li>
+          <li><a class="btn-apply" href="admission.html">สมัครเรียน</a></li>
+        </ul>
+      </nav>
+
+    </div>
+  </header>
+
+
+  <!-- ================= HERO ================= -->
+  <section class="hero classic">
+    <div class="hero-slider">
+
+      <!-- Slide 1 -->
+      <article class="hero-slide is-active">
+        <div class="hero-media">
+          <video autoplay muted loop playsinline>
+            <source src="assets/bg/hero-cai.mp4" type="video/mp4">
+            เบราว์เซอร์ของคุณไม่รองรับการเล่นวิดีโอ
+          </video>
+        </div>
+
+        <div class="hero-overlay"></div>
+
+        <div class="hero-inner">
+          <div class="hero-text">
+            <p class="hero-eyebrow">Bachelor of Engineering and Technology · CAI</p>
+
+            <h1 class="hero-title">
+              Computer Engineering<br>
+              and Artificial Intelligence
+            </h1>
+
+            <p class="hero-lead">
+              สร้างอนาคตกับเทคโนโลยีแห่งยุคดิจิทัล
+            </p>
+
+            <a href="admission.html" class="btn-hero hero-apply-btn">
+              สมัครเรียน
+            </a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Slide 2 -->
+      <article class="hero-slide">
+        <div class="hero-media">
+          <img src="assets/bg/ภาพโปรโมท CAI.jpg" alt="CAI Projects">
+        </div>
+
+        <div class="hero-overlay"></div>
+
+        <div class="hero-inner">
+          <div class="hero-text">
+            <p class="hero-eyebrow">CAI Experience</p>
+
+            <h2 class="hero-title">
+              สร้างผลงานจริง &nbsp; พัฒนาทักษะจริง<br>
+              ใช้งานจริงในอุตสาหกรรม
+            </h2>
+
+            <p class="hero-lead">
+              เรียนรู้กับผู้เชี่ยวชาญตัวจริง พร้อมลงมือทำโปรเจกต์ที่ใช้ได้จริงในสายงาน
+            </p>
+
+            <a href="projects.html" class="btn-hero btn-hero-ghost">
+              ดูผลงาน / กิจกรรม
+            </a>
+          </div>
+        </div>
+      </article>
+
+      <button class="hero-nav prev" aria-label="ก่อนหน้า">‹</button>
+      <button class="hero-nav next" aria-label="ถัดไป">›</button>
+
+      <div class="hero-dots" aria-label="ตัวเลือกสไลด์แบนเนอร์"></div>
+    </div>
+  </section>
+
+
+  <!-- ================= SEARCH ================= -->
+  <section class="search-wrap">
+    <div class="container search-box">
+      <p class="search-label">ค้นหาข้อมูลในเว็บไซต์</p>
+
+      <input
+        id="semanticSearchInput"
+        class="search-input"
+        type="text"
+        placeholder="ค้นหา เช่น ค่าเทอม แผนการเรียน บุคลากร สมัครเรียน"
+      >
+
+      <div id="searchResults" class="search-results"></div>
+    </div>
+  </section>
+
+
+  <!-- ================= MAIN CONTENT ================= -->
+  <main>
+
+    <!-- About / Team CAI -->
+    <section class="container about-section">
+      <div class="about-grid">
+
+        <div class="about-card">
+          <video autoplay muted loop playsinline>
+            <source src="assets/bg/PR CAI.mp4" type="video/mp4">
+            เบราว์เซอร์ของคุณไม่รองรับการเล่นวิดีโอ
+          </video>
+
+          <div class="about-text">
+            <h2>#TeamCAI</h2>
+            <p>
+              สาขาวิศวกรรมคอมพิวเตอร์และปัญญาประดิษฐ์
+              เน้นโครงงานจริง การแข่งขัน และความร่วมมือกับอุตสาหกรรม
+            </p>
+            <a href="about-info.html" class="btn-outline">ดูข้อมูลเพิ่มเติม</a>
+          </div>
+        </div>
+
+        <div class="about-news">
+
+          <article class="mini-card">
+            <img src="assets/images/Hardware.jpg" alt="">
+            <div>
+              <h4>พัฒนา Hardware และ Software</h4>
+              <p>
+                เรียนรู้การจัดการข้อมูลและอัลกอริทึม เพื่อพัฒนาซอฟต์แวร์และฮาร์ดแวร์
+                พร้อมวิเคราะห์และแก้ปัญหาทางธุรกิจได้จริง
+              </p>
+            </div>
+          </article>
+
+          <article class="mini-card">
+            <img src="assets/images/AI.jpg" alt="">
+            <div>
+              <h4>ออกแบบระบบ AI</h4>
+              <p>
+                ฝึกออกแบบและพัฒนา AI ด้วย Machine Learning และ Deep Learning
+                เพื่อสร้างนวัตกรรมและเครื่องมือที่มีประสิทธิภาพ
+              </p>
+            </div>
+          </article>
+
+          <article class="mini-card">
+            <img src="assets/images/simulation.jpg" alt="">
+            <div>
+              <h4>จำลองแบบและระบบด้วย Computer Simulation</h4>
+              <p>
+                ฝึกใช้การจำลองด้วยคอมพิวเตอร์ วิเคราะห์ ตรวจสอบ
+                และนำเสนอผลในรูปกราฟ ตาราง หรือภาพหลายมิติ
+              </p>
+            </div>
+          </article>
+
+          <article class="mini-card">
+            <img src="assets/images/program.jpg" alt="">
+            <div>
+              <h4>เขียนโปรแกรมคอมพิวเตอร์</h4>
+              <p>
+                ใช้การเขียนโปรแกรมรวบรวมและวิเคราะห์ข้อมูล
+                เพื่อคิดเชิงวิทยาศาสตร์และพัฒนาวิธีแก้ปัญหาด้วยข้อมูล
+                (Data-Driven)
+              </p>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- Why CAI -->
+    <section class="container why-section reveal">
+      <h2 class="section-title">ทำไมต้องเรียน CAI ที่ PIM</h2>
+
+      <div class="why-grid">
+        <article class="why-card">
+          <span>01</span>
+          <h3>เรียนรู้จากงานจริง</h3>
+          <p>
+            เน้นการลงมือทำ โปรเจกต์จริง การแข่งขัน
+            และโจทย์ที่เชื่อมโยงกับอุตสาหกรรม
+          </p>
+        </article>
+
+        <article class="why-card">
+          <span>02</span>
+          <h3>ครบทั้ง Computer Engineering และ AI</h3>
+          <p>
+            เรียนทั้งฮาร์ดแวร์ ซอฟต์แวร์ ระบบข้อมูล
+            Machine Learning และ Deep Learning
+          </p>
+        </article>
+
+        <article class="why-card">
+          <span>03</span>
+          <h3>ต่อยอดสู่อาชีพเทคโนโลยี</h3>
+          <p>
+            เตรียมทักษะสำหรับ Programmer, AI Engineer,
+            Software Engineer และสายงานดิจิทัล
+          </p>
+        </article>
+      </div>
+    </section>
+
+
+    <!-- Career -->
+    <section class="container career-section">
+      <h2 class="section-title">สายอาชีพในสาขา CAI</h2>
+
+      <div class="career-grid">
+        <article class="career-card">
+          <img src="assets/images/Programmer1.png" alt="">
+          <h3>Programmer</h3>
+        </article>
+
+        <article class="career-card">
+          <img src="assets/images/วิศวกรรมคอมพิวเตอร์.png" alt="">
+          <h3>Computer Engineer</h3>
+        </article>
+
+        <article class="career-card">
+          <img src="assets/images/ปัญญาประดิษฐ์.png" alt="">
+          <h3>AI Engineer</h3>
+        </article>
+
+        <article class="career-card">
+          <img src="assets/images/วิศวกรรมซอฟต์แวร์.png" alt="">
+          <h3>Software Engineer</h3>
+        </article>
+
+        <article class="career-card">
+          <img src="assets/images/นักพัฒนา.png" alt="">
+          <h3>Computer Systems Analyst and Designer</h3>
+        </article>
+      </div>
+    </section>
+
+
+    <!-- News -->
+    <section class="container news-section reveal">
+      <h2 class="section-title">ข่าวสาร / กิจกรรมล่าสุด</h2>
+
+      <div class="news-slider">
+        <button class="news-nav prev" aria-label="ก่อนหน้า">‹</button>
+        <button class="news-nav next" aria-label="ถัดไป">›</button>
+
+        <div class="news-track" id="newsTrack">
+
+          <a
+            class="news-card"
+            href="https://et.pim.ac.th/wp/%e0%b8%84%e0%b9%88%e0%b8%b2%e0%b8%a2%e0%b8%81%e0%b8%a5-%e0%b8%84%e0%b8%99%e0%b8%a7%e0%b8%b4%e0%b8%a8%e0%b8%a7%e0%b8%b0-et-camp-first-class-2025-%e0%b8%81%e0%b8%a5%e0%b8%b1%e0%b8%9a%e0%b8%a1%e0%b8%b2/"
+            target="_blank"
+            rel="noopener"
+          >
+            <div class="news-media">
+              <img src="assets/images/news1.jpg" alt="ค่ายกล คนวิศวะ">
+              <span class="news-badge">ประกาศ</span>
+            </div>
+
+            <div class="news-meta">
+              <h4>ค่ายกล คนวิศวะ ET CAMP FIRST CLASS 2025 กลับมาอีกครั้ง</h4>
+              <time datetime="2024-10-08">8 ต.ค. 2024</time>
+            </div>
+          </a>
+
+          <a
+            class="news-card"
+            href="https://et.pim.ac.th/wp/%e0%b8%a3%e0%b9%88%e0%b8%a7%e0%b8%a1%e0%b9%81%e0%b8%aa%e0%b8%94%e0%b8%87%e0%b8%84%e0%b8%a7%e0%b8%b2%e0%b8%a1%e0%b8%a2%e0%b8%b4%e0%b8%99%e0%b8%94%e0%b8%b5%e0%b8%81%e0%b8%b1%e0%b8%9a%e0%b8%aa%e0%b8%a1/"
+            target="_blank"
+            rel="noopener"
+          >
+            <div class="news-media">
+              <img src="assets/images/news2.jpg" alt="PIM GO CLUB">
+              <span class="news-badge">กิจกรรม</span>
+            </div>
+
+            <div class="news-meta">
+              <h4>ร่วมแสดงความยินดีกับสมาชิกชมรม PIM GO CLUB</h4>
+              <time datetime="2024-10-07">7 ต.ค. 2024</time>
+            </div>
+          </a>
+
+          <a
+            class="news-card"
+            href="https://et.pim.ac.th/wp/pim-x-cu-%e0%b8%a3%e0%b9%88%e0%b8%a7%e0%b8%a1%e0%b8%a0%e0%b8%b2%e0%b8%a3%e0%b8%81%e0%b8%b4%e0%b8%88-m-elephas-maximus-%e0%b9%83%e0%b8%99%e0%b9%82%e0%b8%84%e0%b8%a3%e0%b8%87%e0%b8%81%e0%b8%b2%e0%b8%a3/"
+            target="_blank"
+            rel="noopener"
+          >
+            <div class="news-media">
+              <img src="assets/images/news3.jpg" alt="PIM X CU ร่วมภารกิจ M Elephas Maximus">
+              <span class="news-badge">กิจกรรม</span>
+            </div>
+
+            <div class="news-meta">
+              <h4>
+                PIM X CU ร่วมภารกิจ M Elephas Maximus
+                ในโครงการ school satellite 2024
+              </h4>
+              <time datetime="2024-10-07">7 ต.ค. 2024</time>
+            </div>
+          </a>
+
+          <a
+            class="news-card"
+            href="https://et.pim.ac.th/wp/%e0%b9%82%e0%b8%84%e0%b8%a3%e0%b8%87%e0%b8%81%e0%b8%b2%e0%b8%a3%e0%b8%9b%e0%b8%a3%e0%b8%b0%e0%b8%81%e0%b8%a7%e0%b8%94-pim-ai-junior-challenge-2024/"
+            target="_blank"
+            rel="noopener"
+          >
+            <div class="news-media">
+              <img src="assets/images/news4.jpg" alt="โครงการประกวด PIM AI Junior Challenge 2024">
+              <span class="news-badge">ประกาศ</span>
+            </div>
+
+            <div class="news-meta">
+              <h4>โครงการประกวด PIM AI Junior Challenge 2024</h4>
+              <time datetime="2024-10-04">4 ต.ค. 2024</time>
+            </div>
+          </a>
+
+          <a
+            class="news-card"
+            href="https://et.pim.ac.th/wp/%e0%b8%81%e0%b9%88%e0%b8%ad%e0%b8%99%e0%b8%88%e0%b8%b0%e0%b9%84%e0%b8%9b%e0%b8%9d%e0%b8%b6%e0%b8%81%e0%b8%87%e0%b8%b2%e0%b8%99-%e0%b9%84%e0%b8%94%e0%b9%89%e0%b9%80%e0%b8%88%e0%b8%ad%e0%b8%9e%e0%b8%b5/"
+            target="_blank"
+            rel="noopener"
+          >
+            <div class="news-media">
+              <img src="assets/images/news5.jpg" alt="กิจกรรมแชร์ประสบการณ์สายอาชีพ">
+              <span class="news-badge">กิจกรรม</span>
+            </div>
+
+            <div class="news-meta">
+              <h4>
+                Terabyte Group X PIM จัดกิจกรรมแชร์ประสบการณ์สายอาชีพ
+                เพื่อเพิ่มโอกาสในการทำงานให้กับนักศึกษา DIT และ CAI ชั้นปี 2-3
+              </h4>
+              <time datetime="2024-10-04">4 ต.ค. 2024</time>
+            </div>
+          </a>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- Faculty -->
+    <section class="container faculty-section faculty-zoom" id="faculty">
+      <h2 class="section-title">บุคลากร</h2>
+
+      <div class="faculty-grid fac-grid fac-zoom-grid">
+
+        <a
+          class="portrait-card"
+          href="faculty/adisorn-k.html"
+          aria-label="ผู้ช่วยศาสตราจารย์ ดร.อดิศร แขกซอง"
+        >
+          <figure class="portrait">
+            <img src="assets/images/Adisorn.png" alt="ผู้ช่วยศาสตราจารย์ ดร.อดิศร แขกซอง">
+          </figure>
+
+          <div class="meta">
+            <h3>ผู้ช่วยศาสตราจารย์ ดร.อดิศร แขกซอง</h3>
+          </div>
+        </a>
+
+        <a
+          class="portrait-card"
+          href="faculty/parinya-s.html"
+          aria-label="รองศาสตราจารย์ ดร.ปริญญา สงวนสัตย์"
+        >
+          <figure class="portrait">
+            <img src="assets/images/Parinya.png" alt="รองศาสตราจารย์ ดร.ปริญญา สงวนสัตย์">
+          </figure>
+
+          <div class="meta">
+            <h3>รองศาสตราจารย์ ดร.ปริญญา สงวนสัตย์</h3>
+          </div>
+        </a>
+
+        <a
+          class="portrait-card"
+          href="faculty/tinnaphob-d.html"
+          aria-label="ผู้ช่วยศาสตราจารย์ ดร.ติณณภพ ดินดำ"
+        >
+          <figure class="portrait">
+            <img src="assets/images/Tinnaphob.png" alt="ผู้ช่วยศาสตราจารย์ ดร.ติณณภพ ดินดำ">
+          </figure>
+
+          <div class="meta">
+            <h3>ผู้ช่วยศาสตราจารย์ ดร.ติณณภพ ดินดำ</h3>
+          </div>
+        </a>
+
+      </div>
+    </section>
+
+
+    <!-- Tuition -->
+    <section class="container tuition-image-section">
+      <div class="tuition-title-wrap">
+        <h2 class="tuition-title">
+          ค่าเทอมและทุน คณะวิศวกรรมศาสตร์และเทคโนโลยี
+        </h2>
+      </div>
+
+      <img
+        src="assets/images/tuition-scholarship.jpg"
+        alt="ค่าเทอมและทุนการศึกษา สาขา CAI"
+        class="tuition-full-image"
+      >
+    </section>
+
+  </main>
+
+
+  <!-- ================= FOOTER ================= -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+
+        <div>
+          <h4>ติดต่อคณะ / สาขา</h4>
+          <p>คณะวิศวกรรมศาสตร์และเทคโนโลยี</p>
+          <p>สถาบันการจัดการปัญญาภิวัฒน์ (PIM)</p>
+          <p>85/1 หมู่ 2 ถ.แจ้งวัฒนะ อ.ปากเกร็ด จ.นนทบุรี 11120</p>
+          <p>โทร 02-855-0000</p>
+        </div>
+
+        <div>
+          <h4>ช่องทางออนไลน์</h4>
+
+          <ul class="social-list">
+            <li>
+              <a href="https://www.facebook.com/ET.PIM" target="_blank" rel="noopener">
+                <span class="social-icon">
+                  <img src="assets/images/facebook.png" alt="Facebook">
+                </span>
+                Engineering and Technology (PANYAPIWAT)
+              </a>
+            </li>
+
+            <li>
+              <a
+                href="https://www.instagram.com/et.pim?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
+                target="_blank"
+                rel="noopener"
+              >
+                <span class="social-icon">
+                  <img src="assets/images/instagram.png" alt="Instagram">
+                </span>
+                et.pim
+              </a>
+            </li>
+
+            <li>
+              <a
+                href="https://www.tiktok.com/@et.pim?is_from_webapp=1&sender_device=pc"
+                target="_blank"
+                rel="noopener"
+              >
+                <span class="social-icon">
+                  <img src="assets/images/tiktok.png" alt="TikTok">
+                </span>
+                et.pim
+              </a>
+            </li>
+
+            <li>
+              <a href="https://et.pim.ac.th/wp/" target="_blank" rel="noopener">
+                <span class="social-icon">
+                  <img src="assets/images/web.png" alt="Website">
+                </span>
+                et.pim.ac.th
+              </a>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="copyright">
+      Copyright © Panyapiwat Institute of Management
+    </div>
+  </footer>
+
+
+  <!-- ================= ROBOT GREETER ================= -->
+  <div class="robot-greeter" id="robotGreeter" aria-live="polite">
+    <div class="robot-avatar robot-avatar-big">
+      <img
+        src="assets/bg/robot-intro.gif"
+        alt="CAI Bot"
+        class="robot-img-big"
+      >
+    </div>
+
+    <button class="robot-close" type="button" aria-label="ปิดหุ่นยนต์ทักทาย">
+      ×
+    </button>
+  </div>
+
+
+  <!-- ================= DIALOGFLOW CHATBOT ================= -->
+  <script src="https://www.gstatic.com/dialogflow-console/fast/messenger/bootstrap.js?v=1"></script>
+
+  <df-messenger
+    intent="WELCOME"
+    chat-title="Chatbot"
+    agent-id="22b9729d-f158-4a68-88f7-1cf5fd8a97ad"
+    language-code="th"
+  ></df-messenger>
+
+</body>
+</html>

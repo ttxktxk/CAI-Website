@@ -1,0 +1,111 @@
+[
+  {
+    "id": "about",
+    "title": "เกี่ยวกับหลักสูตร CAI",
+    "summary": "ภาพรวมหลักสูตร ชื่อปริญญา จำนวนหน่วยกิต ระยะเวลา และสมรรถนะบัณฑิต",
+    "href": "about.html",
+    "tags": ["เกี่ยวกับหลักสูตร","info","overview"],
+    "category": "about"
+  },
+  {
+    "id": "about-history",
+    "title": "ความเป็นมาของหลักสูตร",
+    "summary": "ประวัติการก่อตั้ง การพัฒนาหลักสูตร จุดเด่น และความร่วมมือกับอุตสาหกรรม",
+    "href": "about-history.html",
+    "tags": ["history","ความเป็นมา","อุตสาหกรรม"],
+    "category": "about"
+  },
+  {
+    "id": "about-info",
+    "title": "ข้อมูลหลักสูตร (ชื่อปริญญา/หน่วยกิต/ระยะเวลา/คุณสมบัติผู้สมัคร)",
+    "summary": "ข้อมูลสำคัญสำหรับผู้สนใจสมัครเรียนในสาขา CAI",
+    "href": "about-info.html",
+    "tags": ["ข้อมูลหลักสูตร","คุณสมบัติ","apply","admission"],
+    "category": "about"
+  },
+  {
+    "id": "curriculum",
+    "title": "แผนการเรียน (Curriculum)",
+    "summary": "โครงสร้างรายวิชา รายวิชาพื้นฐาน แกน และวิชาเลือกเชิงลึกด้าน AI/IoT/Software",
+    "href": "curriculum.html",
+    "tags": ["แผนการเรียน","curriculum","รายวิชา"],
+    "category": "study"
+  },
+  {
+    "id": "tuition-scholarship",
+    "title": "ค่าเทอมและทุนการศึกษา",
+    "summary": "อัปเดตรายละเอียดค่าเทอม ทุนการศึกษา และเงื่อนไขการรับทุน",
+    "href": "tuition-scholarship.html",
+    "tags": ["ทุน","scholarship","ค่าเทอม","การเงิน"],
+    "category": "admission"
+  },
+  {
+    "id": "admission",
+    "title": "สมัครเรียนสาขา CAI",
+    "summary": "รอบรับสมัคร คุณสมบัติ เอกสารที่ใช้ และช่องทางการสมัคร",
+    "href": "admission.html",
+    "tags": ["สมัคร","apply","admission","คุณสมบัติผู้สมัคร"],
+    "category": "admission"
+  },
+  {
+    "id": "faculty",
+    "title": "บุคลากร/คณาจารย์",
+    "summary": "รายชื่ออาจารย์ ประวัติย่อ และความเชี่ยวชาญ เช่น Network, Cloud, Security, Microservices, IoT",
+    "href": "faculty.html",
+    "tags": ["อาจารย์","บุคลากร","คณาจารย์","faculty"],
+    "category": "people"
+  },
+  {
+    "id": "projects",
+    "title": "ผลงานและกิจกรรม",
+    "summary": "รวบรวมโครงงานนักศึกษา กิจกรรมวิชาการ การแข่งขัน และความร่วมมือ",
+    "href": "projects.html",
+    "tags": ["ผลงาน","projects","กิจกรรม","แข่งขัน"],
+    "category": "showcase"
+  },
+  {
+    "id": "services",
+    "title": "บริการวิชาการ",
+    "summary": "งานวิจัย การให้บริการวิชาการ ถ่ายทอดองค์ความรู้กับภาคธุรกิจ",
+    "href": "services.html",
+    "tags": ["วิจัย","research","บริการวิชาการ"],
+    "category": "service"
+  },
+  {
+    "id": "alumni",
+    "title": "สำหรับบัณฑิต (Alumni)",
+    "summary": "เครือข่ายศิษย์เก่า โอกาสงาน ความร่วมมือ และกิจกรรมนัดพบ",
+    "href": "alumni.html",
+    "tags": ["ศิษย์เก่า","alumni","career"],
+    "category": "people"
+  },
+
+
+  {
+    "id": "news-1",
+    "title": "Microservices Architecture: Built to Never Fail",
+    "summary": "เสวนาแนวทางออกแบบระบบ Microservices ให้ทนทานและปรับขยายได้",
+    "href": "https://www.pim.ac.th/news/your-news-1",
+    "tags": ["microservices","architecture","cloud-native"],
+    "category": "news",
+    "date": "2025-10-01"
+  },
+  {
+    "id": "news-2",
+    "title": "7 วัฒนธรรมการทำงานแบบญี่ปุ่นที่ต้องรู้",
+    "summary": "กิจกรรมแลกเปลี่ยนเรียนรู้เกี่ยวกับการทำงานในญี่ปุ่น",
+    "href": "https://www.pim.ac.th/news/your-news-2",
+    "tags": ["ญี่ปุ่น","japan","culture","work & study"],
+    "category": "event",
+    "date": "2025-09-22"
+  },
+  {
+    "id": "news-3",
+    "title": "Work & Study Japan โอกาสดี ๆ ที่รออยู่",
+    "summary": "โอกาสไปศึกษาต่อและทำงานในญี่ปุ่นสำหรับนักศึกษา CAI",
+    "href": "https://www.pim.ac.th/news/your-news-3",
+    "tags": ["ญี่ปุ่น","work & study","exchange"],
+    "category": "announcement",
+    "date": "2025-09-10"
+  }
+]
