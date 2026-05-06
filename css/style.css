@@ -195,6 +195,52 @@ h3{ font-weight:600; font-size:clamp(16px,1.6vw,20px); }
   outline: none;
 }
 
+@media(max-width:560px){
+
+  .brand-logos{
+    gap:8px;
+  }
+
+  .brand-logos img{
+    height:52px;
+  }
+
+  .brand-logos img:nth-child(2){
+    height:42px;
+  }
+}
+
+@media (max-width:900px){
+
+  .nav{
+    position:relative;
+  }
+
+  .nav .menu{
+    max-height:calc(100vh - 90px);
+    overflow-y:auto;
+
+    width:min(340px, calc(100vw - 24px));
+
+    right:12px;
+    top:68px;
+
+    padding:14px;
+    border-radius:18px;
+
+    box-shadow:0 20px 40px rgba(15,23,42,.18);
+  }
+
+  .nav .menu li{
+    width:100%;
+  }
+
+  .nav .menu a{
+    width:100%;
+    padding:12px 14px;
+  }
+}
+
 /* แสดง submenu เมื่อ hover (เดสก์ท็อป) */
 @media (min-width: 901px){
   .nav .menu .has-sub:hover > .submenu{
@@ -257,6 +303,17 @@ h3{ font-weight:600; font-size:clamp(16px,1.6vw,20px); }
   min-height: 70vh;          /* ให้สูงตามจอส่วนใหญ่ */
   background: #020617;
   overflow: hidden;
+}
+@media (max-width:640px){
+
+  .hero-slider{
+    min-height:92svh;
+  }
+
+  .hero-inner{
+    align-items:center;
+    padding:90px 16px 40px;
+  }
 }
 
 /* จอใหญ่ให้สูงขึ้นอีกหน่อย */
@@ -363,7 +420,18 @@ h3{ font-weight:600; font-size:clamp(16px,1.6vw,20px); }
     );
   }
 }
+@media(max-width:480px){
 
+  .hero-title{
+    font-size:clamp(24px,8vw,32px);
+    line-height:1.18;
+  }
+
+  .hero-lead{
+    font-size:.92rem;
+    line-height:1.7;
+  }
+}
 /* มือถือเล็ก */
 @media (max-width: 640px) {
   .hero-inner {
@@ -823,6 +891,12 @@ h3{ font-weight:600; font-size:clamp(16px,1.6vw,20px); }
 .news-nav.prev{ left:-6px; }
 .news-nav.next{ right:-6px; }
 
+@media(max-width:560px){
+
+  .news-card{
+    flex:0 0 88%;
+  }
+}
 /* ซ่อนปุ่มบนจอเล็กมาก */
 @media (max-width:700px){
   .news-nav{ display:none; }
@@ -840,6 +914,14 @@ h3{ font-weight:600; font-size:clamp(16px,1.6vw,20px); }
 .copyright{text-align:center;padding:10px 0;border-top:1px solid rgba(255,255,255,.12);color:#cfd5ff}
 
 /* ===== Responsive ===== */
+@media(max-width:760px){
+
+  .footer-grid{
+    grid-template-columns:1fr;
+    gap:28px;
+  }
+}
+
 @media (max-width:1200px){
   .career-grid{grid-template-columns:repeat(4,1fr);}
 }
@@ -2643,6 +2725,18 @@ h3{ font-weight:600; font-size:clamp(16px,1.6vw,20px); }
   gap:28px;
 }
 
+#faculty .fac-grid{
+  display:grid !important;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr)) !important;
+  gap:28px;
+}
+
+#faculty .portrait-card{
+  width:100% !important;
+  max-width:320px;
+  margin:0 auto;
+}
+
 #faculty .portrait-card{
   position:relative;
   width:310px !important;
@@ -2907,6 +3001,14 @@ h3{ font-weight:600; font-size:clamp(16px,1.6vw,20px); }
   margin:0;
   color:var(--muted);
   line-height:1.75;
+}
+
+@media(max-width:560px){
+
+  .search-input{
+    font-size:16px;
+    padding:14px 18px;
+  }
 }
 
 @media(max-width:800px){
