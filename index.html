@@ -79,6 +79,10 @@
 
         <div class="hero-overlay"></div>
 
+        <div class="hero-center-logo">
+  <img src="assets/images/pim-logo.png" alt="PIM Logo">
+</div>
+
         <div class="hero-inner">
           <div class="hero-text">
             <p class="hero-eyebrow">Bachelor of Engineering and Technology · CAI</p>
@@ -89,7 +93,7 @@
             </h1>
 
             <p class="hero-lead">
-              สร้างอนาคตกับเทคโนโลยีแห่งยุคดิจิทัล
+              สถาบันการจัดการปัญญาภิวัฒน์ (PIM) 
             </p>
 
             <a href="admission.html" class="btn-hero hero-apply-btn">
@@ -99,39 +103,6 @@
         </div>
       </article>
 
-      <!-- Slide 2 -->
-      <article class="hero-slide">
-        <div class="hero-media">
-          <img src="assets/bg/ภาพโปรโมท CAI.jpg" alt="CAI Projects">
-        </div>
-
-        <div class="hero-overlay"></div>
-
-        <div class="hero-inner">
-          <div class="hero-text">
-            <p class="hero-eyebrow">CAI Experience</p>
-
-            <h2 class="hero-title">
-              สร้างผลงานจริง &nbsp; พัฒนาทักษะจริง<br>
-              ใช้งานจริงในอุตสาหกรรม
-            </h2>
-
-            <p class="hero-lead">
-              เรียนรู้กับผู้เชี่ยวชาญตัวจริง พร้อมลงมือทำโปรเจกต์ที่ใช้ได้จริงในสายงาน
-            </p>
-
-            <a href="projects.html" class="btn-hero btn-hero-ghost">
-              ดูผลงาน / กิจกรรม
-            </a>
-          </div>
-        </div>
-      </article>
-
-      <button class="hero-nav prev" aria-label="ก่อนหน้า">‹</button>
-      <button class="hero-nav next" aria-label="ถัดไป">›</button>
-
-      <div class="hero-dots" aria-label="ตัวเลือกสไลด์แบนเนอร์"></div>
-    </div>
   </section>
 
 
@@ -223,41 +194,6 @@
           </article>
 
         </div>
-      </div>
-    </section>
-
-
-    <!-- Why CAI -->
-    <section class="container why-section reveal">
-      <h2 class="section-title">ทำไมต้องเรียน CAI ที่ PIM</h2>
-
-      <div class="why-grid">
-        <article class="why-card">
-          <span>01</span>
-          <h3>เรียนรู้จากงานจริง</h3>
-          <p>
-            เน้นการลงมือทำ โปรเจกต์จริง การแข่งขัน
-            และโจทย์ที่เชื่อมโยงกับอุตสาหกรรม
-          </p>
-        </article>
-
-        <article class="why-card">
-          <span>02</span>
-          <h3>ครบทั้ง Computer Engineering และ AI</h3>
-          <p>
-            เรียนทั้งฮาร์ดแวร์ ซอฟต์แวร์ ระบบข้อมูล
-            Machine Learning และ Deep Learning
-          </p>
-        </article>
-
-        <article class="why-card">
-          <span>03</span>
-          <h3>ต่อยอดสู่อาชีพเทคโนโลยี</h3>
-          <p>
-            เตรียมทักษะสำหรับ Programmer, AI Engineer,
-            Software Engineer และสายงานดิจิทัล
-          </p>
-        </article>
       </div>
     </section>
 
@@ -462,7 +398,12 @@
       </div>
 
       <img
-        src="assets/images/tuition-scholarship.jpg"
+        src="assets/images/tuition-scholarship1.jpg"
+        alt="ค่าเทอมและทุนการศึกษา สาขา CAI"
+        class="tuition-full-image"
+      >
+      <img
+        src="assets/images/tuition-scholarship2.jpg"
         alt="ค่าเทอมและทุนการศึกษา สาขา CAI"
         class="tuition-full-image"
       >
@@ -547,10 +488,10 @@
   <div class="robot-greeter" id="robotGreeter" aria-live="polite">
     <div class="robot-avatar robot-avatar-big">
       <img
-        src="assets/bg/robot-intro.gif"
-        alt="CAI Bot"
-        class="robot-img-big"
-      >
+  src="assets/images/Logo.png"
+  alt="CAI Logo"
+  class="robot-img-big"
+>
     </div>
 
     <button class="robot-close" type="button" aria-label="ปิดหุ่นยนต์ทักทาย">
@@ -562,12 +503,12 @@
   <!-- ================= DIALOGFLOW CHATBOT ================= -->
   <script src="https://www.gstatic.com/dialogflow-console/fast/messenger/bootstrap.js?v=1"></script>
 
-  <df-messenger
-    intent="WELCOME"
-    chat-title="Chatbot"
-    agent-id="22b9729d-f158-4a68-88f7-1cf5fd8a97ad"
-    language-code="th"
-  ></df-messenger>
+ <df-messenger
+  intent="WELCOME"
+  chat-title="CAI Assistant"
+  agent-id="22b9729d-f158-4a68-88f7-1cf5fd8a97ad"
+  language-code="th"
+></df-messenger>
 
 </body>
 </html>
