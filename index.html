@@ -106,22 +106,31 @@
   </section>
 
 
-  <!-- ================= SEARCH ================= -->
-  <section class="search-wrap">
-    <div class="container search-box">
-      <p class="search-label">ค้นหาข้อมูลในเว็บไซต์</p>
+ <!-- ================= SEARCH ================= -->
+<section class="search-wrap">
+  <div class="container search-box">
+    <div class="search-field">
 
-      <input
-        id="semanticSearchInput"
-        class="search-input"
-        type="text"
-        placeholder="ค้นหา เช่น ค่าเทอม แผนการเรียน บุคลากร สมัครเรียน"
-      >
+      <div class="search-input-wrap">
+        <span class="search-icon">🔎</span>
 
-      <div id="searchResults" class="search-results"></div>
+        <input
+          id="semanticSearchInput"
+          class="search-input"
+          type="text"
+          autocomplete="off"
+          placeholder="ค้นหาข้อมูลในเว็บไซต์"
+        >
+      </div>
+
+      <button class="search-btn" type="button" id="semanticSearchBtn">
+        ค้นหา
+      </button>
     </div>
-  </section>
 
+    <div id="searchResults" class="search-results"></div>
+  </div>
+</section>
 
   <!-- ================= MAIN CONTENT ================= -->
   <main>

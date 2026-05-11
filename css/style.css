@@ -635,17 +635,6 @@ h3{ font-weight:600; font-size:clamp(16px,1.6vw,20px); }
   transform: translateY(-1px);
 }
 
-/* ===== Search Section ===== */
-
-.search-wrap{
-  background:rgba(255,255,255,.78);
-  border-top:1px solid rgba(203,213,225,.8);
-  border-bottom:1px solid rgba(203,213,225,.8);
-  backdrop-filter: blur(12px);
-}
-.search-input{width:min(900px,95%);margin:14px auto 10px;display:block;padding:12px 16px;border-radius:24px;border:2px solid var(--primary);font-size:1rem;background:#fff}
-.search-results{max-width:900px;margin:0 auto 12px}
-.search-results .result{background:#fff;border-radius:12px;padding:12px;margin:10px 0;box-shadow:0 6px 14px rgba(0,0,0,.06)}
 
 .about-section{padding:28px 0}
 .about-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:18px}
@@ -1095,41 +1084,193 @@ h3{ font-weight:600; font-size:clamp(16px,1.6vw,20px); }
 /* ===== Portrait Cards ===== */
 
 
-/* Semantic search results */
-.search-wrap { position: relative; }
-.search-results .result {
-  background: #fff;
-  border: 1px solid var(--border);
-  border-radius: 14px;
-  padding: 12px 14px;
-  margin: 10px 0;
-  box-shadow: 0 6px 14px rgba(0,0,0,.06);
-  transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
-}
-.search-results .result.is-active {
-  border-color: rgba(0,56,168,.35);
-  box-shadow: 0 10px 20px rgba(0,0,0,.08), 0 0 0 2px rgba(0,56,168,.08);
-}
-.search-results .result:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 10px 20px rgba(0,0,0,.10);
-  border-color: rgba(0,56,168,.25);
-}
-.search-results .result h4 { margin: 0 0 6px; color: var(--navy); }
-.search-results .result p  { margin: 0 0 8px; color: var(--muted); }
-.search-results .result .meta-line { display:flex; gap:10px; align-items:center; margin-bottom:8px; }
-.search-results .result .chip {
-  display:inline-block;
-  padding: 4px 8px;
-  border-radius: 999px;
-  border: 1px solid var(--border);
-}
-.search-results mark {
-  background: #fff4cc;
-  border-radius: 4px;
-  padding: 0 2px;
+/* ===== Professional Semantic Search ===== */
+
+.search-wrap{
+  width:100%;
+  max-width:none;
+
+  margin:0;
+  padding:10px 0;
+
+  background:#ffffff;
+
+  border-top:1px solid #e5edf7;
+  border-bottom:1px solid #e5edf7;
 }
 
+.search-box{
+  max-width:860px;
+}
+
+.search-field{
+  display:grid;
+  grid-template-columns:1fr auto;
+  align-items:center;
+  gap:10px;
+  max-width:760px;
+  margin:0 auto;
+}
+
+.search-input-wrap{
+  position:relative;
+}
+
+.search-icon{
+  position:absolute;
+  left:16px;
+  top:50%;
+  transform:translateY(-50%);
+  color:#64748b;
+  font-size:.95rem;
+  pointer-events:none;
+}
+
+.search-input{
+  width:100%;
+  height:50px;
+  padding:0 16px 0 44px;
+  border:1px solid #d8e2f0;
+  border-radius:14px;
+  background:#fff;
+  color:#0f172a;
+  font-family:var(--font-sans);
+  font-size:.98rem;
+  outline:none;
+  box-shadow:none;
+}
+
+.search-input:focus{
+  border-color:#00479b;
+  box-shadow:0 0 0 3px rgba(0,71,155,.10);
+}
+
+.search-btn{
+  height:50px;
+  padding:0 24px;
+  border:0;
+  border-radius:14px;
+  background:#00479b;
+  color:#fff;
+  font-family:var(--font-heading);
+  font-weight:700;
+  font-size:.95rem;
+  cursor:pointer;
+  transition:.18s ease;
+}
+
+.search-btn:hover{
+  background:#003a7d;
+}
+
+.search-results{
+  max-width:760px;
+  margin:16px auto 0;
+  display:grid;
+  gap:10px;
+}
+
+.search-summary{
+  margin:0 0 2px;
+  color:#64748b;
+  font-size:.9rem;
+}
+
+.search-results .result{
+  background:#fff;
+  border:1px solid #e2e8f0;
+  border-radius:14px;
+  padding:14px 16px;
+  box-shadow:none;
+}
+
+.search-results .result:hover,
+.search-results .result.is-active{
+  border-color:#b8cce6;
+  background:#f8fbff;
+}
+
+.search-results .result h4{
+  margin:0 0 6px;
+  color:#001b44;
+  font-size:1rem;
+  line-height:1.45;
+}
+
+.search-results .result p{
+  margin:0 0 10px;
+  color:#475569;
+  font-size:.92rem;
+  line-height:1.65;
+}
+
+.search-results .result .meta-line{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+  margin-bottom:10px;
+}
+
+.search-results .result .chip{
+  display:inline-flex;
+  align-items:center;
+  padding:3px 9px;
+  border-radius:999px;
+  background:#eef6ff;
+  color:#00479b;
+  font-size:.78rem;
+  font-weight:700;
+}
+
+.search-results .result .btn-outline{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  padding:7px 13px;
+  border-radius:10px;
+  border:1px solid #00479b;
+  color:#00479b;
+  background:#fff;
+  font-size:.88rem;
+  font-weight:700;
+  text-decoration:none;
+}
+
+.search-results .result .btn-outline:hover{
+  background:#00479b;
+  color:#fff;
+}
+
+.search-empty{
+  padding:16px;
+  border:1px solid #e2e8f0;
+  border-radius:14px;
+  background:#f8fbff;
+  color:#475569;
+  text-align:center;
+}
+
+.search-empty strong{
+  display:block;
+  margin-bottom:4px;
+  color:#001b44;
+}
+
+.search-results mark{
+  background:#fff2b8;
+  border-radius:4px;
+  padding:0 2px;
+}
+
+@media(max-width:640px){
+  .search-field{
+    grid-template-columns:1fr;
+  }
+
+  .search-btn{
+    width:100%;
+  }
+}
 /* ===== Projects / Works & Activities page ===== */
 
 .projects-hero{

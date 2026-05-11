@@ -72,15 +72,17 @@
   // ---------- Domain knowledge ----------
   // คำพ้องความหมาย (เติมได้ตามต้องการ)
   const SYN = {
-    "ai": ["ปัญญาประดิษฐ์", "artificial intelligence", "machine learning", "ml", "ดีพเลิร์น", "deep learning"],
-    "ไมโครเซอร์วิส": ["microservices", "architecture", "distributed", "cloud-native"],
-    "สมัคร": ["admission", "apply", "รับสมัคร", "คุณสมบัติ", "สมัครเรียน"],
-    "ทุน": ["ทุนการศึกษา", "scholarship", "financial aid", "ทุน"],
-    "อาจารย์": ["บุคลากร", "คณาจารย์", "faculty", "ผู้สอน"],
-    "ผลงาน": ["projects", "โครงงาน", "กิจกรรม", "showcase"],
-    "วิจัย": ["research", "บริการวิชาการ", "academic services"],
-    "ญี่ปุ่น": ["japan", "work & study", "exchange", "วัฒนธรรมญี่ปุ่น"]
-  };
+  "ai": ["ปัญญาประดิษฐ์", "artificial intelligence", "machine learning", "ml", "deep learning", "ดีพเลิร์น"],
+  "หลักสูตร": ["ข้อมูลหลักสูตร", "โครงสร้างหลักสูตร", "หน่วยกิต", "ปริญญา", "PLO", "ผลลัพธ์การเรียนรู้"],
+  "แผนการเรียน": ["curriculum", "รายวิชา", "วิชาเรียน", "ชั้นปี", "ภาคเรียน", "หน่วยกิต"],
+  "สมัคร": ["admission", "apply", "รับสมัคร", "คุณสมบัติ", "สมัครเรียน", "เรียนต่อ"],
+  "ทุน": ["ทุนการศึกษา", "scholarship", "financial aid", "ค่าเทอม"],
+  "อาจารย์": ["บุคลากร", "คณาจารย์", "faculty", "ผู้สอน", "หัวหน้าหลักสูตร", "อาจารย์ประจำหลักสูตร"],
+  "ผลงาน": ["projects", "โครงงาน", "กิจกรรม", "showcase", "การแข่งขัน", "โปรเจกต์"],
+  "บริการ": ["บริการวิชาการ", "academic services", "workshop", "อบรม", "โครงการ"],
+  "บัณฑิต": ["alumni", "ศิษย์เก่า", "รุ่นพี่", "จบแล้วเวิร์ค"],
+  "อาชีพ": ["career", "programmer", "computer engineer", "ai engineer", "software engineer", "systems analyst"]
+};
 
   // ---------- Indexing ----------
   let CORPUS = [];
@@ -227,24 +229,40 @@
   }
 
   // ---------- Rendering & UX ----------
-  function renderResults(container, items, queryTokens) {
-    if (!items.length) { container.innerHTML = ""; return; }
-    container.innerHTML = items.slice(0, 12).map((it, idx) => `
+function renderResults(container, items, queryTokens) {
+  if (!items.length) {
+    container.innerHTML = `
+      <div class="search-empty">
+        <strong>ไม่พบข้อมูล</strong>
+        <span>ลองค้นหาด้วยคำอื่น เช่น หลักสูตร, สมัครเรียน, อาจารย์ หรือ AI</span>
+      </div>
+    `;
+    return;
+  }
+
+  const shown = items.slice(0, 6);
+
+  container.innerHTML = `
+    <p class="search-summary">พบ ${items.length} รายการที่เกี่ยวข้อง</p>
+
+    ${shown.map((it, idx) => `
       <article class="result" data-idx="${idx}">
         <h4>${highlight(it.title, queryTokens)}</h4>
         <p>${highlight(it.summary || "", queryTokens)}</p>
+
         <div class="meta-line">
           ${it.category ? `<span class="chip">${it.category}</span>` : ""}
           ${it.date ? `<time datetime="${it.date}">${it.date}</time>` : ""}
         </div>
-        ${it.href ? `<a href="${it.href}" class="btn-outline">ไปยังหน้า</a>` : ""}
-      </article>
-    `).join("");
 
-    // โฟกัสแถวแรกสำหรับคีย์บอร์ด
-    const first = container.querySelector('.result');
-    if (first) first.classList.add('is-active');
-  }
+        ${it.href ? `<a href="${it.href}" class="btn-outline">เปิดดูข้อมูล</a>` : ""}
+      </article>
+    `).join("")}
+  `;
+
+  const first = container.querySelector(".result");
+  if (first) first.classList.add("is-active");
+}
 
   function attachKeyboardNav(inputEl, containerEl, ranked) {
     let idx = 0;
@@ -315,6 +333,17 @@
     }, 180);
 
     input.addEventListener('input', run);
+    if (searchBtn) {
+  searchBtn.addEventListener("click", run);
+}
+    document.querySelectorAll('[data-search]').forEach(btn => {
+  btn.addEventListener('click', () => {
+    input.value = btn.dataset.search || "";
+    input.dispatchEvent(new Event('input'));
+    input.focus();
+    const searchBtn = document.getElementById("semanticSearchBtn");
+  });
+});
   }
 
   document.addEventListener('DOMContentLoaded', initSemanticSearch);
