@@ -135,12 +135,10 @@
   align-items:flex-end;
   justify-content:center;
   overflow:hidden;
-  background:
-    radial-gradient(circle at center 38%, rgba(29,155,240,.18), transparent 38%),
-    linear-gradient(160deg,#eaf4ff 0%,#fff 70%);
+  background:#fff;
 }
 
-.faculty-photo::before{
+/* .faculty-photo::before{
   content:"";
   position:absolute;
   top:52px;
@@ -163,7 +161,7 @@
   border-radius:999px;
   background:rgba(15,23,42,.16);
   filter:blur(16px);
-}
+} */
 
 .faculty-photo img{
   position:relative;
@@ -209,15 +207,36 @@
 
 .faculty-content h3{
   min-height:64px;
+
   display:flex;
   align-items:center;
   justify-content:center;
+
   margin:0;
+
   color:var(--navy);
   font-family:var(--font-heading);
-  font-size:clamp(10px,1.5vw,16px);
-  line-height:1.35;
+
+  font-size:clamp(12px,2vw,18px);
+
+  line-height:1.45;
   text-align:center;
+}
+
+@media(max-width:680px){
+
+  .faculty-content h3{
+    font-size:1.18rem;
+    line-height:1.5;
+  }
+
+  .faculty-tag{
+    font-size:.82rem;
+  }
+
+  .faculty-btn{
+    font-size:.92rem;
+  }
 }
 
 .faculty-btn{

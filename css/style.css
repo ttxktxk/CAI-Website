@@ -3528,3 +3528,85 @@ df-messenger{
 df-messenger *{
   white-space: pre-line;
 }
+
+
+/* ===== Mobile Spacing Fix ===== */
+
+@media(max-width:640px){
+
+  .container{
+    padding-left:18px;
+    padding-right:18px;
+  }
+
+  .search-wrap{
+    padding:14px 0;
+  }
+
+  .search-box{
+    padding: left 26px;
+    padding-right:26px;
+  }
+
+  .search-field{
+    max-width:100%;
+    gap:8px;
+  }
+
+  .search-input{
+    height:46px;
+    font-size:.94rem;
+    border-radius:12px;
+  }
+
+  .search-btn{
+    height:46px;
+    border-radius:12px;
+  }
+
+  .search-results{
+    margin-top:14px;
+  }
+
+  .search-results .result{
+    padding:14px;
+    border-radius:12px;
+  }
+
+  .about-section,
+  .career-section,
+  .news-section,
+  .faculty-section,
+  .tuition-image-section{
+    padding-left:4px;
+    padding-right:4px;
+  }
+
+  .about-card,
+  .mini-card,
+  .career-card,
+  .news-card,
+  .portrait-card{
+    max-width:calc(100vw - 56px);
+    margin-left:auto;
+    margin-right:auto;
+  }
+
+  .news-card{
+    flex-basis:82%;
+  }
+
+  .career-grid{
+    gap:14px;
+  }
+
+  .mini-card{
+    grid-template-columns:72px 1fr;
+    gap:10px;
+  }
+
+  .mini-card img{
+    width:72px;
+    height:72px;
+  }
+}
