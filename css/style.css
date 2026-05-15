@@ -3610,3 +3610,9 @@ df-messenger *{
     height:72px;
   }
 }
+
+.partner-image{
+  max-width: 850px;
+  margin: 0 auto;
+  display: block;
+}

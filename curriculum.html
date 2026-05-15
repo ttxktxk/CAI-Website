@@ -170,10 +170,13 @@ h1,h2,h3{
   top:78px;
   z-index:10;
   display:flex;
+  justify-content:center;   /* เพิ่ม */
+  align-items:center;       /* เพิ่ม */
   gap:10px;
   flex-wrap:wrap;
-  margin:0 0 34px;
+  margin:0 auto 34px;       /* แก้ */
   padding:14px;
+  max-width:980px;          /* เพิ่ม ให้เท่าการ์ดด้านล่าง */
   border-radius:24px;
   background:rgba(255,255,255,.88);
   border:1px solid var(--border);
@@ -367,12 +370,13 @@ td:last-child{
     grid-template-columns:1fr;
   }
 
-  .year-tabs{
+   .year-tabs{
     position:static;
+    justify-content:center;
   }
 
   .year-tabs a{
-    flex:1;
+    flex:1 1 calc(50% - 10px);
     text-align:center;
   }
 
