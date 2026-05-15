@@ -3617,3 +3617,59 @@ df-messenger *{
   display: block;
 }
 
+.about-card{
+  position:relative;
+}
+
+.about-sound-btn{
+  position:absolute;
+  left:16px;
+  bottom:16px;
+  z-index:5;
+
+  border:0;
+  border-radius:999px;
+  padding:8px 14px;
+
+  background:rgba(0,27,68,.88);
+  color:#fff;
+  font-family:var(--font-heading);
+  font-weight:700;
+  cursor:pointer;
+}
+
+.about-video-wrap{
+  position:relative;
+  height:100%;
+}
+
+.about-video-wrap video{
+  width:100%;
+  height:100%;
+  min-height:260px;
+  object-fit:cover;
+  display:block;
+}
+
+.about-sound-btn{
+  position:absolute;
+  left:14px;
+  bottom:14px;
+  z-index:5;
+  border:0;
+  border-radius:999px;
+  padding:8px 14px;
+  background:rgba(0,27,68,.88);
+  color:#fff;
+  font-family:var(--font-heading);
+  font-weight:700;
+  cursor:pointer;
+}
+
+.news-section{
+  padding-bottom:8px;
+}
+
+.faculty-section{
+  margin-top:-6px;
+}

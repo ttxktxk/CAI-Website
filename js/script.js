@@ -637,3 +637,33 @@ document.addEventListener('DOMContentLoaded', () => {
 
   showImage();
 });
+
+document.addEventListener("click", () => {
+
+  const aboutVideo = document.getElementById("aboutVideo");
+
+  if (aboutVideo) {
+    aboutVideo.muted = false;
+    aboutVideo.volume = 1;
+
+    aboutVideo.play();
+  }
+
+}, { once:true });
+
+function toggleAboutSound(){
+  const video = document.getElementById("aboutVideo");
+  const btn = document.querySelector(".about-sound-btn");
+
+  if (!video) return;
+
+  video.muted = !video.muted;
+  video.volume = 1;
+
+  if (!video.muted) {
+    video.play();
+    btn.textContent = "🔇 ปิดเสียง";
+  } else {
+    btn.textContent = "🔊 เปิดเสียง";
+  }
+}

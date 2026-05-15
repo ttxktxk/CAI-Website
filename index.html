@@ -139,21 +139,27 @@
     <section class="container about-section">
       <div class="about-grid">
 
-        <div class="about-card">
-          <video autoplay muted loop playsinline>
-            <source src="assets/bg/PR CAI.mp4" type="video/mp4">
-            เบราว์เซอร์ของคุณไม่รองรับการเล่นวิดีโอ
-          </video>
+<div class="about-card">
+  <div class="about-video-wrap">
+    <video autoplay muted loop playsinline id="aboutVideo">
+      <source src="assets/bg/PR CAI.mp4" type="video/mp4">
+      เบราว์เซอร์ของคุณไม่รองรับการเล่นวิดีโอ
+    </video>
 
-          <div class="about-text">
-            <h2>#TeamCAI</h2>
-            <p>
-              สาขาวิศวกรรมคอมพิวเตอร์และปัญญาประดิษฐ์
-              เน้นโครงงานจริง การแข่งขัน และความร่วมมือกับอุตสาหกรรม
-            </p>
-            <a href="about-info.html" class="btn-outline">ดูข้อมูลเพิ่มเติม</a>
-          </div>
-        </div>
+    <button class="about-sound-btn" type="button" onclick="toggleAboutSound()">
+      🔊 เปิดเสียง
+    </button>
+  </div>
+
+  <div class="about-text">
+    <h2>#TeamCAI</h2>
+    <p>
+      สาขาวิศวกรรมคอมพิวเตอร์และปัญญาประดิษฐ์
+      เน้นโครงงานจริง การแข่งขัน และความร่วมมือกับอุตสาหกรรม
+    </p>
+    <a href="about-info.html" class="btn-outline">ดูข้อมูลเพิ่มเติม</a>
+  </div>
+</div>
 
         <div class="about-news">
 
